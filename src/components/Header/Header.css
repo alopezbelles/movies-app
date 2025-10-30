@@ -1,0 +1,51 @@
+/* Estilos personalizados para el Header */
+.header-navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-brand {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.header-brand:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.header-nav-link {
+  margin: 0 10px;
+  color: #495057;
+  transition: color 0.3s ease;
+}
+
+.header-nav-link:hover {
+  color: #007bff;
+}
+
+.header-search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.header-search-input {
+  min-width: 200px;
+}
+
+.header-search-button {
+  white-space: nowrap;
+}
+
+/* Responsivo */
+@media (max-width: 991.98px) {
+  .header-search-form {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .header-search-input {
+    flex: 1;
+    min-width: unset;
+  }
+}

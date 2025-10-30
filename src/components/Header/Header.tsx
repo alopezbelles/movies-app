@@ -5,12 +5,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Header.css';
 
 function HeaderNavbar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="header-navbar">
       <Container fluid>
-        <Navbar.Brand href="#">Movies App</Navbar.Brand>
+        <Navbar.Brand href="#" className="header-brand">Movies App</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -18,30 +19,25 @@ function HeaderNavbar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
+            <Nav.Link href="#action1" className="header-nav-link">Home</Nav.Link>
+            <Nav.Link href="#action2" className="header-nav-link">Movies</Nav.Link>
+            <NavDropdown title="Genres" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Comedy</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Drama</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action6">All Genres</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
+            <Nav.Link href="#" className="header-nav-link">Favorites</Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="header-search-form">
             <Form.Control
               type="search"
-              placeholder="Search"
-              className="me-2"
+              placeholder="Search movies..."
+              className="header-search-input"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" className="header-search-button">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
