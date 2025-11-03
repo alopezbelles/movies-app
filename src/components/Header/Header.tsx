@@ -43,9 +43,9 @@ function HeaderNavbar({ onSearchResults, onSearchStateChange }: HeaderNavbarProp
   }, [movies, onSearchResults]);
 
   return (
-    <Navbar expand="lg" className="header-navbar">
+    <Navbar expand="lg" className="header">
       <Container fluid>
-        <Navbar.Brand href="#" className="header-brand">Movies App</Navbar.Brand>
+        <Navbar.Brand href="#" className="brand">STREEMO</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -53,8 +53,8 @@ function HeaderNavbar({ onSearchResults, onSearchStateChange }: HeaderNavbarProp
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className="header-nav-link">Home</Nav.Link>
-            <Nav.Link href="#action2" className="header-nav-link">Movies</Nav.Link>
+            <Nav.Link href="#action1" className="nav-link">Home</Nav.Link>
+            <Nav.Link href="#action2" className="nav-link">Movies</Nav.Link>
             <NavDropdown title="Genres" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Comedy</NavDropdown.Item>
@@ -62,14 +62,14 @@ function HeaderNavbar({ onSearchResults, onSearchStateChange }: HeaderNavbarProp
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action6">All Genres</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" className="header-nav-link">Favorites</Nav.Link>
+            <Nav.Link href="#" className="nav-link">Favorites</Nav.Link>
           </Nav>
           
-          <Form className="header-search-form" onSubmit={handleSearch}>
+          <Form className="search-form" onSubmit={handleSearch}>
             <Form.Control
               type="search"
               placeholder="Search movies..."
-              className="header-search-input"
+              className="search-input"
               aria-label="Search"
               value={searchQuery}
               onChange={handleInputChange}
@@ -77,19 +77,19 @@ function HeaderNavbar({ onSearchResults, onSearchStateChange }: HeaderNavbarProp
             />
             <Button 
               variant="outline-success" 
-              className="header-search-button"
+              className="search-button"
               type="submit"
               disabled={loading || !searchQuery.trim()}
             >
               {loading ? 'Searching...' : 'Search'}
             </Button>
+            
+            {error && (
+              <div className="search-error">
+                <small className="text-danger">{error}</small>
+              </div>
+            )}
           </Form>
-          
-          {error && (
-            <div className="search-error">
-              <small className="text-danger">{error}</small>
-            </div>
-          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

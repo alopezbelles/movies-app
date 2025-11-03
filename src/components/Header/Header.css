@@ -1,62 +1,80 @@
-/* Estilos personalizados para el Header */
-.header-navbar {
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+/* Header Component */
+.header {
+  background-color: #262429;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-.header-brand {
-  font-weight: bold;
-  color: #007bff;
-}
-
-.header-brand:hover {
-  color: #0056b3;
-  text-decoration: none;
-}
-
-.header-nav-link {
-  margin: 0 10px;
-  color: #495057;
-  transition: color 0.3s ease;
-}
-
-.header-nav-link:hover {
-  color: #007bff;
-}
-
-.header-search-form {
-  display: flex;
-  gap: 10px;
-}
-
-.header-search-input {
-  min-width: 200px;
-}
-
-.header-search-button {
-  white-space: nowrap;
-}
-
-.search-error {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  padding: 0.5rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-/* Responsivo */
-@media (max-width: 991.98px) {
-  .header-search-form {
-    margin-top: 1rem;
-    width: 100%;
+  .brand {
+    font-weight: bold;
+    color: #eeeeee;
+    transition: color 0.3s ease;   
   }
-  
-  .header-search-input {
-    flex: 1;
-    min-width: unset;
+
+  .nav-link {
+    margin: 0 10px;
+    color: #bdbdbd;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #eeeeee;
+    }
+  }
+
+  .search-form {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    color:#eeeeee;
+
+    .search-input {
+      min-width: 200px;
+      border-radius: 20px;
+      background-color: #262429;
+      color: #ffffff;
+      border: 1px solid #404040;
+
+      &::placeholder {
+        color: #888888;
+        opacity: 1;
+      }
+
+      &:focus {
+        background-color: #2a2a2a;
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        color: #ffffff;
+
+        &::placeholder {
+          color: #aaaaaa;
+        }
+      }
+    }
+
+    .search-button {
+      white-space: nowrap;
+    }
+
+    .search-error {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      padding: 0.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 991.98px) {
+    .search-form {
+      margin-top: 1rem;
+      width: 100%;
+
+      .search-input {
+        flex: 1;
+        min-width: unset;
+      }
+    }
   }
 }
