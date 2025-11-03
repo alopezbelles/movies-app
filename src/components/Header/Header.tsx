@@ -45,7 +45,7 @@ function HeaderNavbar({ onSearchResults, onSearchStateChange }: HeaderNavbarProp
   return (
     <Navbar expand="lg" className="header">
       <Container fluid>
-        <Navbar.Brand href="#" className="brand">Movies App</Navbar.Brand>
+        <Navbar.Brand href="#" className="brand">STREEMO</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
