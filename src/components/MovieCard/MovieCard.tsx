@@ -2,6 +2,8 @@
 import './MovieCard.css';
 import type { Movie } from '../../hooks/useMovies';
 import { getImageUrl, formatRating } from '../../hooks/useMovies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 interface MovieCardProps {
   movie: Movie;
@@ -25,12 +27,9 @@ function MovieCard({ movie, onClick }: MovieCardProps) {
       <div className="content">
         <h3 className="title">{movie.title}</h3>
         <div className="rating">
-          <span className="star">⭐</span>
+          <FontAwesomeIcon icon={faStar} className="star" />
           <span className="score">{formatRating(movie.vote_average)}/10</span>
         </div>
-        <button className="btn-details" onClick={handleClick}>
-          Ver detalles
-        </button>
       </div>
     </article>
   );

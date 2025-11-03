@@ -1,7 +1,7 @@
 import MovieList from "../../components/MovieList/MovieList";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import type { Movie } from "../../hooks/useMovies";
-import './HomeStyles.css';
+import './Home.css';
 
 interface HomeProps {
   searchResults?: Movie[];
@@ -15,16 +15,7 @@ function Home({ searchResults = [], isSearching = false }: HomeProps) {
   };
 
   return (
-    <main className="home">
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">Descubre las mejores películas</h1>
-          <p className="hero-description">
-            Explora una amplia colección de películas populares, mejor valoradas y próximos estrenos
-          </p>
-        </div>
-      </section>
-      
+    <main className="home">      
       {isSearching && searchResults.length > 0 ? (
         <section className="search-results">
           <div className="search-results-header">
