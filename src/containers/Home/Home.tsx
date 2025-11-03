@@ -1,27 +1,59 @@
+import MovieList from "../../components/MovieList/MovieList";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import type { Movie } from "../../hooks/useMovies";
+import './HomeStyles.css';
 
-function Home() {
+interface HomeProps {
+  searchResults?: Movie[];
+  isSearching?: boolean;
+}
+
+function Home({ searchResults = [], isSearching = false }: HomeProps) {
+  const handleMovieClick = (movie: Movie) => {
+    console.log('Película seleccionada:', movie);
+    // Aquí puedes agregar navegación o modal de detalles
+  };
+
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Películas Populares</h2>
-      <div className="row g-3">
-        <div className="col-md-3 col-sm-6">
-          <MovieCard
-            title="The Batman"
-            image="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg"
-            rating={7.8}
-          />
+    <main className="home">
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">Descubre las mejores películas</h1>
+          <p className="hero-description">
+            Explora una amplia colección de películas populares, mejor valoradas y próximos estrenos
+          </p>
         </div>
-
-        <div className="col-md-3 col-sm-6">
-          <MovieCard
-            title="Interstellar"
-            image="https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg"
-            rating={8.6}
-          />
-        </div>
-      </div>
-    </div>
+      </section>
+      
+      {isSearching && searchResults.length > 0 ? (
+        <section className="search-results">
+          <div className="search-results-header">
+            <h2 className="section-title">Resultados de búsqueda</h2>
+            <p className="results-count">
+              {searchResults.length} película{searchResults.length !== 1 ? 's' : ''} encontrada{searchResults.length !== 1 ? 's' : ''}
+            </p>
+          </div>
+          <div className="movies-grid">
+            {searchResults.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onClick={handleMovieClick}
+              />
+            ))}
+          </div>
+        </section>
+      ) : isSearching && searchResults.length === 0 ? (
+        <section className="no-results">
+          <div className="no-results-content">
+            <h3>No se encontraron películas</h3>
+            <p>Intenta con otros términos de búsqueda</p>
+          </div>
+        </section>
+      ) : (
+        <MovieList category="popular" />
+      )}
+    </main>
   );
 }
 

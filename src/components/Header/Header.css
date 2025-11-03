@@ -37,6 +37,17 @@
   white-space: nowrap;
 }
 
+.search-error {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
 /* Responsivo */
 @media (max-width: 991.98px) {
   .header-search-form {

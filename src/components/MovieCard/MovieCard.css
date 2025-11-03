@@ -1,6 +1,6 @@
 /* Movie Card Component */
 .movie-card {
-  width: 18rem;
+  width: 16rem;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -90,11 +90,11 @@
 
   /* Size variants */
   &.small {
-    width: 15rem;
+    width: 14rem;
   }
 
   &.large {
-    width: 22rem;
+    width: 20rem;
   }
 
   /* Responsive design */

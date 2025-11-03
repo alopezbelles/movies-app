@@ -1,13 +1,47 @@
 
+import { useState, useCallback, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSearchMovies } from '../../hooks/useMovies';
 import './Header.css';
 
-function HeaderNavbar() {
+interface HeaderNavbarProps {
+  onSearchResults?: (results: any[]) => void;
+  onSearchStateChange?: (isSearching: boolean) => void;
+}
+
+function HeaderNavbar({ onSearchResults, onSearchStateChange }: HeaderNavbarProps) {
+  const [searchQuery, setSearchQuery] = useState('');
+  const { movies, loading, error, searchMovies } = useSearchMovies();
+
+  const handleSearch = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      onSearchStateChange?.(true);
+      await searchMovies(searchQuery);
+    }
+  }, [searchQuery, searchMovies, onSearchStateChange]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    
+    // Si el input se vacía, limpiar resultados
+    if (!value.trim()) {
+      onSearchStateChange?.(false);
+      onSearchResults?.([]);
+    }
+  };
+
+  // Enviar resultados al componente padre cuando cambien
+  useEffect(() => {
+    onSearchResults?.(movies);
+  }, [movies, onSearchResults]);
+
   return (
     <Navbar expand="lg" className="header-navbar">
       <Container fluid>
@@ -30,15 +64,32 @@ function HeaderNavbar() {
             </NavDropdown>
             <Nav.Link href="#" className="header-nav-link">Favorites</Nav.Link>
           </Nav>
-          <Form className="header-search-form">
+          
+          <Form className="header-search-form" onSubmit={handleSearch}>
             <Form.Control
               type="search"
               placeholder="Search movies..."
               className="header-search-input"
               aria-label="Search"
+              value={searchQuery}
+              onChange={handleInputChange}
+              disabled={loading}
             />
-            <Button variant="outline-success" className="header-search-button">Search</Button>
+            <Button 
+              variant="outline-success" 
+              className="header-search-button"
+              type="submit"
+              disabled={loading || !searchQuery.trim()}
+            >
+              {loading ? 'Searching...' : 'Search'}
+            </Button>
           </Form>
+          
+          {error && (
+            <div className="search-error">
+              <small className="text-danger">{error}</small>
+            </div>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
