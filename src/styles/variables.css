@@ -1,0 +1,238 @@
+/* ==========================================================================
+   🎨 DESIGN SYSTEM VARIABLES - Movies App
+   Variables globales para colores, espaciado, tipografía y efectos
+   ========================================================================== */
+
+:root {
+  /* ===== COLORS ===== */
+  
+  /* Primary Colors */
+  --color-primary: #f39c12;
+  --color-primary-dark: #e67e22;
+  --color-primary-darker: #d35400;
+  
+  /* Accent Colors */
+  --color-accent: #667eea;
+  --color-accent-dark: #764ba2;
+  --color-accent-darker: #5a6fd8;
+  
+  /* Background Colors */
+  --color-bg-primary: #1B1B1D;
+  --color-bg-secondary: #331d2c;
+  --color-bg-surface: #17203B;
+  --color-bg-card: #262429;
+  --color-bg-overlay: rgba(0, 0, 0, 0.8);
+  
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #eeeeee;
+  --color-text-muted: #bdbdbd;
+  --color-text-light: #a1a1a1;
+  --color-text-dark: #2c3e50;
+  --color-text-accent: #7f8c8d;
+  
+  /* Border Colors */
+  --color-border-primary: #404040;
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-border-accent: #007bff;
+  
+  /* State Colors */
+  --color-error: #e74c3c;
+  --color-error-dark: #c0392b;
+  --color-warning: #f39c12;
+  --color-success: #27ae60;
+  
+  /* ===== GRADIENTS ===== */
+  --gradient-primary: linear-gradient(135deg, #0A122B 0%, #331d2c 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-button: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  --gradient-button-hover: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  --gradient-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-error: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  --gradient-backdrop: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  
+  /* ===== SPACING ===== */
+  --spacing-xs: 0.25rem;      /* 4px */
+  --spacing-sm: 0.5rem;       /* 8px */
+  --spacing-md: 1rem;         /* 16px */
+  --spacing-lg: 1.5rem;       /* 24px */
+  --spacing-xl: 2rem;         /* 32px */
+  --spacing-2xl: 3rem;        /* 48px */
+  --spacing-3xl: 4rem;        /* 64px */
+  
+  /* Gap Spacing */
+  --gap-xs: 0.25rem;
+  --gap-sm: 0.5rem;
+  --gap-md: 1rem;
+  --gap-lg: 1.5rem;
+  --gap-xl: 2rem;
+  
+  /* ===== BORDER RADIUS ===== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-round: 50px;
+  --radius-full: 50%;
+  
+  /* ===== TYPOGRAPHY ===== */
+  
+  /* Font Sizes */
+  --font-size-xs: 0.8rem;     /* 12.8px */
+  --font-size-sm: 0.9rem;     /* 14.4px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-md: 1.1rem;     /* 17.6px */
+  --font-size-lg: 1.2rem;     /* 19.2px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 2rem;      /* 32px */
+  --font-size-3xl: 2.5rem;    /* 40px */
+  --font-size-4xl: 3.5rem;    /* 56px */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  /* ===== SHADOWS ===== */
+  --shadow-xs: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0 30px 100px rgba(0, 0, 0, 0.8);
+  
+  /* Card Shadows */
+  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.2);
+  --shadow-card-active: 0 6px 20px rgba(0, 0, 0, 0.15);
+  
+  /* Button Shadows */
+  --shadow-button: 0 8px 25px rgba(243, 156, 18, 0.3);
+  --shadow-button-hover: 0 12px 35px rgba(243, 156, 18, 0.5);
+  
+  /* ===== TRANSITIONS ===== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  --transition-slower: 0.5s ease;
+  
+  /* Specific Transitions */
+  --transition-transform: transform 0.2s ease-in-out;
+  --transition-colors: color 0.3s ease;
+  --transition-shadow: box-shadow 0.2s ease-in-out;
+  --transition-all: all 0.2s ease;
+  --transition-all-slow: all 0.3s ease;
+  
+  /* ===== Z-INDEX ===== */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
+  --z-toast: 80;
+  
+  /* ===== LAYOUT ===== */
+  
+  /* Container Widths */
+  --container-xs: 480px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+  
+  /* Grid */
+  --grid-gap: 1.5rem;
+  --grid-gap-sm: 1rem;
+  --grid-gap-lg: 2rem;
+  
+  /* ===== ANIMATIONS ===== */
+  --animation-spin: spin 1s linear infinite;
+  --animation-bounce: bounce 1s infinite;
+  --animation-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  /* ===== BREAKPOINTS (for reference in JavaScript) ===== */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+  
+  /* ===== OPACITY LEVELS ===== */
+  --opacity-disabled: 0.3;
+  --opacity-muted: 0.6;
+  --opacity-subtle: 0.8;
+  --opacity-overlay: 0.9;
+  
+  /* ===== BLUR EFFECTS ===== */
+  --blur-sm: blur(4px);
+  --blur-md: blur(8px);
+  --blur-lg: blur(12px);
+  --blur-backdrop: blur(10px);
+}
+
+/* ==========================================================================
+   🌙 DARK THEME VARIATIONS (Optional)
+   ========================================================================== */
+
+/* Dark theme support can be added here when needed */
+
+/* ==========================================================================
+   🎬 ANIMATION KEYFRAMES
+   ========================================================================== */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

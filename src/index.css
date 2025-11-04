@@ -1,65 +1,93 @@
+/* ==========================================================================
+   🎨 GLOBAL STYLES - Movies App
+   ========================================================================== */
+
+/* Import design system variables */
+@import './styles/variables.css';
+
+
 :root {
+  /* Font configuration */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
 
+  /* Color scheme */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
 
+  /* Font rendering optimization */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* ==========================================================================
+   🏷️ BASE ELEMENT STYLES
+   ========================================================================== */
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: var(--container-xs);
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Links */
+a {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-decoration: inherit;
+  transition: var(--transition-colors);
+  
+  &:hover {
+    color: var(--color-accent-darker);
+  }
 }
 
+/* Headings */
+h1 {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+}
+
+/* Buttons */
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-bg-surface);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: var(--transition-all);
+  
+  &:hover {
+    border-color: var(--color-border-accent);
+  }
+  
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
+/* ==========================================================================
+   🌅 LIGHT THEME OVERRIDES
+   ========================================================================== */
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: var(--color-text-dark);
     background-color: #ffffff;
   }
+  
   a:hover {
-    color: #747bff;
+    color: var(--color-accent-dark);
   }
+  
   button {
     background-color: #f9f9f9;
   }

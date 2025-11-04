@@ -2,32 +2,32 @@
 /* Home Container */
 .home {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1B1B1D 0%, #331d2c 100%);
-  padding-top: 0; /* El slider manejará su propio padding */
+  background: var(--gradient-primary);
+  padding-top: 0; 
 
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 4rem 2rem;
+    background: var(--gradient-hero);
+    padding: var(--spacing-3xl) var(--spacing-xl);
     text-align: center;
-    color: white;
+    color: var(--color-text-primary);
 
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
 
       .hero-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin: 0 0 1rem 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-extrabold);
+        margin: 0 0 var(--spacing-md) 0;
+        text-shadow: var(--shadow-xs);
       }
 
       .hero-description {
-        font-size: 1.2rem;
+        font-size: var(--font-size-lg);
         margin: 0;
-        opacity: 0.9;
-        line-height: 1.6;
-        font-weight: 300;
+        opacity: var(--opacity-overlay);
+        line-height: var(--line-height-relaxed);
+        font-weight: var(--font-weight-light);
       }
     }
   }

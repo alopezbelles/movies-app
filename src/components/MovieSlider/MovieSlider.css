@@ -80,7 +80,7 @@
       backdrop-filter: blur(10px);
 
       &:hover:not(:disabled) {
-        background: rgba(122, 19, 114, 0.9);
+        background: var(--gradient-button);
         transform: translateY(-50%) scale(1.1);
         box-shadow: 0 8px 25px rgba(194, 41, 186, 0.4);
       }
@@ -293,7 +293,7 @@
                   }
 
                   .watch-btn {
-                    background: linear-gradient(135deg, #7c137c 0%, #e67e22 100%);
+                    background: var(--gradient-button);
                     color: white;
                     border: none;
                     padding: 1rem 2.5rem;

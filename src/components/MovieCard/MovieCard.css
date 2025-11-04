@@ -1,35 +1,34 @@
 /* Movie Card Component */
 .movie-card {
   width: 16rem;
-  /* height: 350px; */
-  background: #262429;
-  border-radius: 24px;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-card);
   border: 1px solid transparent;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+  transition: var(--transition-transform), var(--transition-shadow), border var(--transition-normal);
   cursor: pointer;
 
   /* Hover effects */
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid white;
+    box-shadow: var(--shadow-card-hover);
+    border: 1px solid var(--color-text-primary);
 
     .image-container img {
       transform: scale(1.05);
     }
 
     .content .title {
-      color: #f0f0f0;
+      color: var(--color-text-secondary);
     }
   }
 
   /* Active state */
   &:active {
     transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid white;
+    box-shadow: var(--shadow-card-active);
+    border: 1px solid var(--color-text-primary);
   }
 
   /* Image container */
@@ -42,38 +41,39 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: var(--transition-slow);
     }
   }
 
   /* Content section */
   .content {
-    padding: 0.5rem 1.5rem 0.5rem;
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm);
 
     .title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #a1a1a1;
-      line-height: 1.4;
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-light);
+      line-height: var(--line-height-normal);
+      transition: var(--transition-colors);
     }
 
     .rating {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      color: #7f8c8d;
+      gap: var(--gap-xs);
+      margin-bottom: var(--spacing-sm);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-accent);
 
       .star {
-        color: #ffffff;
-        font-size: 0.8rem;
-        margin-right: 0.1rem;
+        color: var(--color-text-primary);
+        font-size: var(--font-size-xs);
+        margin-right: var(--spacing-xs);
       }
 
       .score {
-        font-size: 0.8rem;
-        font-weight: 500;
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-medium);
       }
     }
   }
@@ -98,7 +98,7 @@
     }
 
     .content {
-      padding: 1rem 1.25rem 1.25rem;
+      padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
     }
   }
 
@@ -108,10 +108,10 @@
     }
 
     .content {
-      padding: 0.875rem 1rem 1rem;
+      padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
 
       .title {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
       }
     }
   }
