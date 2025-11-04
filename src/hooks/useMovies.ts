@@ -56,7 +56,7 @@ export const useMovies = (endpoint: string = 'popular', page: number = 1) => {
         }
 
         const data: MoviesResponse = await response.json();
-        setMovies(data.results);
+        setMovies(data.results.slice(0, 10));
         setTotalPages(data.total_pages);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Error desconocido');
@@ -102,7 +102,8 @@ export const useSearchMovies = () => {
       }
 
       const data: MoviesResponse = await response.json();
-      setMovies(data.results);
+      // Limitamos a 10 películas por página en lugar de las 20 que devuelve TMDB
+      setMovies(data.results.slice(0, 10));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error en la búsqueda');
       setMovies([]);

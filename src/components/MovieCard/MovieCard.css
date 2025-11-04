@@ -1,6 +1,7 @@
 /* Movie Card Component */
 .movie-card {
   width: 16rem;
+  /* height: 350px; */
   background: #262429;
   border-radius: 24px;
   overflow: hidden;
@@ -34,7 +35,7 @@
   /* Image container */
   .image-container {
     margin: 0;
-    height: 250px;
+    height: 350px;
     overflow: hidden;
 
     img {

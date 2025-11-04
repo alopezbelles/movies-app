@@ -3,6 +3,7 @@
 .home {
   min-height: 100vh;
   background: linear-gradient(135deg, #1B1B1D 0%, #331d2c 100%);
+  padding-top: 0; /* El slider manejará su propio padding */
 
   .hero-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

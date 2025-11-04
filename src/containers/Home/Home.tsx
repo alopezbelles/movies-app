@@ -1,5 +1,6 @@
 import MovieList from "../../components/MovieList/MovieList";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import MovieSlider from "../../components/MovieSlider/MovieSlider";
 import type { Movie } from "../../hooks/useMovies";
 import './Home.css';
 
@@ -15,7 +16,11 @@ function Home({ searchResults = [], isSearching = false }: HomeProps) {
   };
 
   return (
-    <main className="home">      
+    <main className="home">
+      {/* Slider siempre visible como primer elemento */}
+      <MovieSlider onMovieClick={handleMovieClick} />
+      
+      {/* Contenido condicional según búsqueda */}
       {isSearching && searchResults.length > 0 ? (
         <section className="search-results">
           <div className="search-results-header">
