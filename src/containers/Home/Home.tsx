@@ -1,5 +1,4 @@
 import MovieList from "../../components/MovieList/MovieList";
-import MovieCard from "../../components/MovieCard/MovieCard";
 import MovieSlider from "../../components/MovieSlider/MovieSlider";
 import type { Movie } from "../../hooks/useMovies";
 import './Home.css';
@@ -20,35 +19,13 @@ function Home({ searchResults = [], isSearching = false }: HomeProps) {
       {/* Slider siempre visible como primer elemento */}
       <MovieSlider onMovieClick={handleMovieClick} />
       
-      {/* Contenido condicional según búsqueda */}
-      {isSearching && searchResults.length > 0 ? (
-        <section className="search-results">
-          <div className="search-results-header">
-            <h2 className="section-title">Resultados de búsqueda</h2>
-            <p className="results-count">
-              {searchResults.length} película{searchResults.length !== 1 ? 's' : ''} encontrada{searchResults.length !== 1 ? 's' : ''}
-            </p>
-          </div>
-          <div className="movies-grid">
-            {searchResults.map((movie) => (
-              <MovieCard
-                key={movie.id}
-                movie={movie}
-                onClick={handleMovieClick}
-              />
-            ))}
-          </div>
-        </section>
-      ) : isSearching && searchResults.length === 0 ? (
-        <section className="no-results">
-          <div className="no-results-content">
-            <h3>No se encontraron películas</h3>
-            <p>Intenta con otros términos de búsqueda</p>
-          </div>
-        </section>
-      ) : (
-        <MovieList category="popular" />
-      )}
+      {/* Contenido unificado - siempre usa MovieList */}
+      <MovieList 
+        category={isSearching ? undefined : "popular"}
+        customMovies={isSearching ? searchResults : undefined}
+        customTitle={isSearching ? "Resultados de búsqueda" : undefined}
+        onMovieClick={handleMovieClick}
+      />
     </main>
   );
 }

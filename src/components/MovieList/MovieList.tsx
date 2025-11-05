@@ -1,103 +1,69 @@
 import { useState } from 'react';
 import { useMovies } from '../../hooks/useMovies';
-import MovieCard from '../MovieCard/MovieCard';
+import MoviesGrid from '../MoviesGrid/MoviesGrid';
 import type { Movie } from '../../hooks/useMovies';
-import './MovieList.css';
 
 interface MovieListProps {
   category?: 'popular' | 'top_rated' | 'upcoming' | 'now_playing';
+  customMovies?: Movie[];
+  customTitle?: string;
+  onMovieClick?: (movie: Movie) => void;
 }
 
-function MovieList({ category = 'popular' }: MovieListProps) {
+function MovieList({ 
+  category = 'popular', 
+  customMovies, 
+  customTitle, 
+  onMovieClick 
+}: MovieListProps) {
   const [currentPage, setCurrentPage] = useState(1);
-  const { movies, loading, error, totalPages } = useMovies(category, currentPage);
+  
+  // Solo usar useMovies si NO tenemos customMovies
+  const shouldFetch = !customMovies;
+  const { movies: apiMovies, loading, error, totalPages } = useMovies(
+    shouldFetch ? category : 'popular', 
+    shouldFetch ? currentPage : 1
+  );
 
-  const handleMovieClick = (movie: Movie) => {
-    console.log('Película seleccionada:', movie);
-    // Aquí puedes agregar navegación o modal de detalles
+  // Decidir qué datos usar
+  const movies = customMovies || apiMovies;
+  const isCustomMode = !!customMovies;
+
+  const getTitle = () => {
+    if (customTitle) return customTitle;
+    
+    switch (category) {
+      case 'popular': return 'Películas Populares';
+      case 'top_rated': return 'Mejor Valoradas';
+      case 'upcoming': return 'Próximamente';
+      case 'now_playing': return 'En Cartelera';
+      default: return 'Películas';
+    }
   };
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const getSubtitle = () => {
+    if (isCustomMode) {
+      if (movies.length === 0) return undefined;
+      return `${movies.length} película${movies.length !== 1 ? 's' : ''} encontrada${movies.length !== 1 ? 's' : ''}`;
+    }
+    
+    if (loading || error || movies.length === 0) return undefined;
+    return `Mostrando ${movies.length} películas`;
   };
-
-  if (loading) {
-    return (
-      <div className="movie-list-loading">
-        <div className="loading-spinner">
-          <div className="spinner"></div>
-          <p>Cargando películas...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="movie-list-error">
-        <div className="error-message">
-          <h3>Error al cargar películas</h3>
-          <p>{error}</p>
-          <button 
-            className="retry-button" 
-            onClick={() => window.location.reload()}
-          >
-            Reintentar
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
-    <section className="movie-list">
-      <div className="movie-list-header">
-        <h2 className="section-title">
-          {category === 'popular' && 'Películas Populares'}
-          {category === 'top_rated' && 'Mejor Valoradas'}
-          {category === 'upcoming' && 'Próximamente'}
-          {category === 'now_playing' && 'En Cartelera'}
-        </h2>
-        <p className="results-count">
-          Mostrando {movies.length} películas
-        </p>
-      </div>
-
-      <div className="movies-grid">
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            onClick={handleMovieClick}
-          />
-        ))}
-      </div>
-
-      {totalPages > 1 && (
-        <div className="pagination">
-          <button
-            className="pagination-btn"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-          >
-            Anterior
-          </button>
-          
-          <span className="pagination-info">
-            Página {currentPage} de {totalPages}
-          </span>
-          
-          <button
-            className="pagination-btn"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-          >
-            Siguiente
-          </button>
-        </div>
-      )}
-    </section>
+    <MoviesGrid
+      movies={movies}
+      title={getTitle()}
+      subtitle={getSubtitle()}
+      onMovieClick={onMovieClick}
+      showPagination={!isCustomMode} // Solo paginación para datos de API
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={setCurrentPage}
+      loading={!isCustomMode && loading}
+      error={!isCustomMode ? error : null}
+    />
   );
 }
 
