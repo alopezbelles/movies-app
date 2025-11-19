@@ -12,7 +12,6 @@ interface HomeProps {
 function Home({ searchResults = [], isSearching = false }: HomeProps) {
   const handleMovieClick = (movie: Movie) => {
     console.log("Película seleccionada:", movie);
-    // Aquí puedes agregar navegación o modal de detalles
   };
 
   return (

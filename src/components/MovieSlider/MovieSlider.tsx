@@ -128,15 +128,16 @@ function MovieSlider({ onMovieClick }: MovieSliderProps) {
                     </figure>
                     
                     <div className="movie-details">
-                      <div className="movie-rating">
+                     
+                      
+                      <h3 className="movie-title">{topMovies[currentSlide].title}</h3>
+                       <div className="movie-rating">
                         <FontAwesomeIcon icon={faStar} className="rating-star" />
                         <span className="rating-value">
                           {formatRating(topMovies[currentSlide].vote_average)}
                         </span>
                         <span className="rating-label">IMDb Rating</span>
                       </div>
-                      
-                      <h3 className="movie-title">{topMovies[currentSlide].title}</h3>
                       
                       <p className="movie-year">
                         {topMovies[currentSlide].release_date 

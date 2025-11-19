@@ -6,7 +6,10 @@
   display: grid;
   grid-template-columns: 75% 25%; 
   gap: var(--spacing-lg);
-  padding: 3rem 3rem;
+  padding: 3rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
 
   /* Responsive design */
   @media (max-width: 1024px) {
@@ -31,7 +34,7 @@
   }
 
   @media (max-width: 480px) {
-    padding: var(--spacing-xs);
+    padding: var(--spacing-sm);
 
     .sidebar {
       padding: var(--spacing-md);
@@ -41,6 +44,12 @@
     .main-content {
       gap: var(--spacing-sm);
     }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 320px) {
+    padding: var(--spacing-xs);
+    gap: var(--spacing-xs);
   }
 
 }
