@@ -28,7 +28,7 @@ export interface MoviesResponse {
 // Configuración de la API
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+// const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 // Hook personalizado para obtener películas
 export const useMovies = (endpoint: string = 'popular', page: number = 1) => {

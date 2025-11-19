@@ -28,7 +28,7 @@ function MovieCard({ movie, onClick }: MovieCardProps) {
         <h3 className="title">{movie.title}</h3>
         <div className="rating">
           <FontAwesomeIcon icon={faStar} className="star" />
-          <span className="score">{formatRating(movie.vote_average)}/10</span>
+          <span className="score">{formatRating(movie.vote_average)}</span>
         </div>
       </div>
     </article>

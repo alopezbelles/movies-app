@@ -2,71 +2,45 @@
 /* Home Container */
 .home {
   min-height: 100vh;
-  background: var(--gradient-primary);
-  padding-top: 0; 
-
-  .hero-section {
-    background: var(--gradient-hero);
-    padding: var(--spacing-3xl) var(--spacing-xl);
-    text-align: center;
-    color: var(--color-text-primary);
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-
-      .hero-title {
-        font-size: var(--font-size-4xl);
-        font-weight: var(--font-weight-extrabold);
-        margin: 0 0 var(--spacing-md) 0;
-        text-shadow: var(--shadow-xs);
-      }
-
-      .hero-description {
-        font-size: var(--font-size-lg);
-        margin: 0;
-        opacity: var(--opacity-overlay);
-        line-height: var(--line-height-relaxed);
-        font-weight: var(--font-weight-light);
-      }
-    }
-  }
+  background: var(--color-bg-primary);
+  display: grid;
+  grid-template-columns: 75% 25%; 
+  gap: var(--spacing-lg);
+  padding: 3rem 3rem;
 
   /* Responsive design */
+  @media (max-width: 1024px) {
+    grid-template-columns: 70% 30%; /* 70% main, 30% sidebar en tablets */
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+
   @media (max-width: 768px) {
-    .hero-section {
-      padding: 3rem 1rem;
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    padding: var(--spacing-sm);
 
-      .hero-content {
-        .hero-title {
-          font-size: 2.5rem;
-        }
+    .sidebar {
+      order: -1; 
+      position: static;
+      margin-bottom: var(--spacing-md);
+    }
 
-        .hero-description {
-          font-size: 1rem;
-        }
-      }
+    .main-content {
+      gap: var(--spacing-md);
     }
   }
 
   @media (max-width: 480px) {
-    .hero-section {
-      padding: 2rem 1rem;
+    padding: var(--spacing-xs);
 
-      .hero-content {
-        .hero-title {
-          font-size: 2rem;
-        }
+    .sidebar {
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+    }
 
-        .hero-description {
-          font-size: 0.9rem;
-        }
-      }
+    .main-content {
+      gap: var(--spacing-sm);
     }
   }
 
-  /* 
-   Note: Search results and movies grid styles are now handled by 
-   the MoviesGrid component for consistency across the app 
-   */
 }

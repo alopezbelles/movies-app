@@ -1,7 +1,6 @@
 .movies-grid-container {
-  max-width: var(--container-xl);
-  margin: 0 auto;
-  padding: var(--spacing-xl) var(--spacing-md);
+  width: 100%;
+
 
   /* Header section */
   .movies-grid-header {
@@ -25,7 +24,7 @@
   /* Main grid layout */
   .movies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--spacing-lg);
     justify-items: center;
   }
@@ -163,6 +162,13 @@
   }
 
   /* Responsive design */
+  @media (max-width: 1024px) {
+    .movies-grid {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--spacing-md);
+    }
+  }
+
   @media (max-width: 768px) {
     padding: var(--spacing-md) var(--spacing-sm);
 
@@ -173,8 +179,8 @@
     }
 
     .movies-grid {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: var(--spacing-md);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--spacing-sm);
     }
 
     .movies-grid-pagination {
@@ -190,8 +196,8 @@
 
   @media (max-width: 480px) {
     .movies-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md);
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--spacing-sm);
     }
 
     .movies-grid-header {

@@ -7,19 +7,19 @@
   /* ===== COLORS ===== */
   
   /* Primary Colors */
-  --color-primary: #f39c12;
-  --color-primary-dark: #e67e22;
-  --color-primary-darker: #d35400;
+  --color-primary: #667eea;
+  --color-primary-dark: #4a5cac;
+  --color-primary-darker: #232c53;
   
   /* Accent Colors */
-  --color-accent: #667eea;
-  --color-accent-dark: #764ba2;
-  --color-accent-darker: #5a6fd8;
+  --color-accent: #764ba2;
+  --color-accent-dark: #543772;
+  --color-accent-darker: #281936;
   
   /* Background Colors */
-  --color-bg-primary: #1B1B1D;
+  --color-bg-primary: #242424;
   --color-bg-secondary: #331d2c;
-  --color-bg-surface: #17203B;
+  --color-bg-surface: #333333;
   --color-bg-card: #262429;
   --color-bg-overlay: rgba(0, 0, 0, 0.8);
   
@@ -29,7 +29,7 @@
   --color-text-muted: #bdbdbd;
   --color-text-light: #a1a1a1;
   --color-text-dark: #2c3e50;
-  --color-text-accent: #7f8c8d;
+  --color-text-accent: #7f7f8d;
   
   /* Border Colors */
   --color-border-primary: #404040;

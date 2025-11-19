@@ -208,19 +208,31 @@ export default ComponentName;
 5. **Media queries** at the end, nested
 
 ### 📱 **Responsive Design:**
+
+**BREAKPOINTS ESTÁNDAR OBLIGATORIOS:**
+- `1024px` - Tablet landscape / Desktop pequeño
+- `768px` - Tablet portrait / Mobile landscape  
+- `480px` - Mobile portrait
+
 ```css
 .component {
   /* Desktop-first styles */
   
+  @media (max-width: 1024px) {
+    /* Tablet landscape / Desktop pequeño */
+  }
+  
   @media (max-width: 768px) {
-    /* Tablet */
+    /* Tablet portrait / Mobile landscape */
   }
   
   @media (max-width: 480px) {
-    /* Mobile */
+    /* Mobile portrait */
   }
 }
 ```
+
+**⚠️ IMPORTANTE:** Usar ÚNICAMENTE estos 3 breakpoints en todo el proyecto. No usar otros valores como 600px, 900px, 1200px, etc.
 
 ---
 
