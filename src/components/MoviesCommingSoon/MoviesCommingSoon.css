@@ -182,90 +182,30 @@
     }
 
     .upcoming-movies-list {
+      /* LAYOUT GRID PARA TABLET */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: var(--spacing-sm);
 
       .movie-card {
-        &:hover {
-          transform: translateX(3px);
-        }
-
-        .image-container {
-          width: 60px;
-          height: 90px;
-        }
-
-        .content {
-          padding: var(--spacing-xs);
-
-          .title {
-            font-size: var(--font-size-xs);
-            -webkit-line-clamp: 1;
-            line-clamp: 1;
-          }
-
-          .movie-overview {
-            font-size: 0.65rem;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
-          }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: var(--spacing-sm);
-    
-    .section-title {
-      font-size: var(--font-size-lg);
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .upcoming-movies-list {
-      /* SLIDER HORIZONTAL COMPACTO */
-      display: flex;
-      flex-direction: row;
-      gap: var(--spacing-xs);
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding-bottom: var(--spacing-xs);
-      
-      /* Scroll suave y táctil */
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-      
-      /* Ocultar scrollbar */
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      .movie-card {
-        /* Tarjetas compactas para evitar scroll lateral */
-        flex: 0 0 auto;
-        width: 110px; /* Ancho más reducido para evitar overflow */
-        height: auto;
-        scroll-snap-align: start;
-        
-        /* Layout vertical para móvil */
+        /* Tarjetas en layout horizontal para grid */
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        height: auto;
         background: var(--color-bg-card);
-        border-radius: var(--radius-sm);
+        border-radius: var(--radius-md);
         overflow: hidden;
         transition: var(--transition-all);
 
         &:hover {
-          transform: translateY(-3px);
+          transform: translateY(-2px);
           background: rgba(255, 255, 255, 0.05);
         }
 
         .image-container {
-          width: 100%;
-          aspect-ratio: 2/3; /* Proporción de póster */
+          width: 80px;
+          height: 120px;
+          flex-shrink: 0;
           margin: 0;
 
           img {
@@ -276,34 +216,41 @@
         }
 
         .content {
+          flex: 1;
           padding: var(--spacing-xs);
           display: flex;
           flex-direction: column;
-          gap: var(--spacing-xs);
+          justify-content: space-between;
 
           .title {
-            font-size: 0.7rem;
+            font-size: var(--font-size-xs);
             font-weight: var(--font-weight-semibold);
             color: var(--color-text-secondary);
             line-height: var(--line-height-tight);
+            margin-bottom: var(--spacing-xs);
             display: -webkit-box;
             -webkit-line-clamp: 2;
             line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            margin: 0;
           }
 
-          /* OCULTAR descripción y mostrar solo rating */
           .movie-overview {
-            display: none;
+            font-size: 0.65rem;
+            color: var(--color-text-muted);
+            line-height: var(--line-height-normal);
+            margin-bottom: var(--spacing-xs);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
           }
 
           .rating {
             margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 2px;
+            align-self: flex-start;
 
             .star {
               font-size: 0.6rem;
@@ -313,6 +260,109 @@
             .score {
               font-size: 0.6rem;
               color: var(--color-text-muted);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: var(--spacing-sm);
+    
+    .section-title {
+      font-size: var(--font-size-md);
+      margin-bottom: var(--spacing-sm);
+      text-align: left;
+      
+      &::after {
+        width: 40px;
+        left: 0;
+        transform: none;
+      }
+    }
+
+    .upcoming-movies-list {
+      /* GRID SIMPLE COMO MOVIECARD ORIGINAL */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--spacing-sm);
+
+      .movie-card {
+        /* Tarjetas verticales como MovieCard */
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        background: var(--color-bg-surface);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        border: 1px solid transparent;
+        transition: var(--transition-transform), var(--transition-shadow), border var(--transition-normal);
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-card-hover);
+          border: 1px solid var(--color-text-primary);
+
+          .image-container img {
+            transform: scale(1.05);
+          }
+
+          .content .title {
+            color: var(--color-text-secondary);
+          }
+        }
+
+        .image-container {
+          position: relative;
+          width: 100%;
+          height: 200px;
+          margin: 0;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+          }
+        }
+
+        .content {
+          padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+
+          .title {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-light);
+            line-height: var(--line-height-normal);
+            margin-bottom: var(--spacing-xs);
+            transition: var(--transition-colors);
+          }
+
+          /* OCULTAR descripción en móvil */
+          .movie-overview {
+            display: none;
+          }
+
+          .rating {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-xs);
+            margin: 0;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-accent);
+
+            .star {
+              color: var(--color-text-primary);
+              font-size: var(--font-size-xs);
+              margin-right: var(--spacing-xs);
+            }
+
+            .score {
+              font-size: var(--font-size-xs);
+              font-weight: var(--font-weight-medium);
             }
           }
         }
