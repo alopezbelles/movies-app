@@ -16,67 +16,58 @@ Una aplicación web moderna desarrollada en **React 19** con **TypeScript** que 
 
 
 
-## ✨ Características Principales## React Compiler
-
-
-
-### 🏗️ Arquitectura React ModernaThe React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Características Principales
 
 - **Componentes funcionales** con React Hooks
 
-- **Custom Hooks** para lógica de negocio reutilizable## Expanding the ESLint configuration
+- **Custom Hooks** para lógica de negocio reutilizable
 
 - **TypeScript estricto** sin uso de `any`
 
-- **Arquitectura por containers y components**If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Arquitectura por containers y components**
 
 - **CSS Modules** y nesting moderno
 
 ```js
 
-### 🎯 Funcionalidades de la Appexport default defineConfig([
+### 🎯 Funcionalidades de la App
 
-- **Slider interactivo** de películas destacadas  globalIgnores(['dist']),
+- **Slider interactivo** de películas destacadas
 
-- **Grid responsive** de películas populares  {
+- **Grid responsive** de películas populares
 
-- **Sidebar dinámico** con próximos estrenos    files: ['**/*.{ts,tsx}'],
+- **Sidebar dinámico** con próximos estrenos 
 
-- **Sistema de búsqueda** en tiempo real    extends: [
+- **Sistema de búsqueda** en tiempo real
 
-- **Estados de carga y error** bien manejados      // Other configs...
+- **Estados de carga y error** bien manejados 
 
 - **Responsive design** para mobile, tablet y desktop
 
-      // Remove tseslint.configs.recommended and replace with this
 
-### 🛠️ Stack Tecnológico      tseslint.configs.recommendedTypeChecked,
+### 🛠️ Stack Tecnológico 
 
-- **Frontend:** React 19.1.1 + TypeScript      // Alternatively, use this for stricter rules
+- **Frontend:** React 19.1.1 + TypeScript 
 
-- **Build Tool:** Vite 5.0      tseslint.configs.strictTypeChecked,
+- **Build Tool:** Vite 5.0 
 
-- **Styling:** CSS3 moderno con variables y nesting      // Optionally, add this for stylistic rules
+- **Styling:** CSS3 moderno con variables y nesting 
 
-- **API:** The Movie Database (TMDB)      tseslint.configs.stylisticTypeChecked,
+- **API:** The Movie Database (TMDB)  
 
 - **Icons:** FontAwesome React
 
-- **UI Framework:** Bootstrap 5.3.8 (selectivo)      // Other configs...
+- **UI Framework:** Bootstrap 5.3.8 (selectivo)  
 
-    ],
 
-## 📁 Estructura del Proyecto    languageOptions: {
 
-      parserOptions: {
+## 📁 Estructura del Proyecto 
 
-```        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-
-src/        tsconfigRootDir: import.meta.dirname,
+src/  
 
 ├── components/          # Componentes reutilizables      },
 
-│   ├── Header/         # Navegación y búsqueda      // other options...
+│   ├── Header/         # Navegación y búsqueda 
 
 │   ├── MovieCard/      # Tarjeta individual de película    },
 
@@ -84,31 +75,28 @@ src/        tsconfigRootDir: import.meta.dirname,
 
 │   ├── MovieSlider/    # Slider de películas destacadas])
 
-│   └── MoviesCommingSoon/  # Sidebar de próximos estrenos```
+│   └── MoviesCommingSoon/  # Sidebar de próximos estrenos
 
 ├── containers/         # Páginas/Containers principales
 
-│   └── Home/          # Página principalYou can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+│   └── Home/          # Página principal
 
 ├── hooks/             # Custom Hooks
 
-│   └── useMovies.ts   # Hook para gestión de datos TMDB```js
+│   └── useMovies.ts   # Hook para gestión de datos TMDB
 
-├── styles/            # Variables CSS globales// eslint.config.js
+├── styles/            # Variables CSS globales
 
-└── main.tsx          # Entry pointimport reactX from 'eslint-plugin-react-x'
-
-```import reactDom from 'eslint-plugin-react-dom'
+└── main.tsx          # Entry pointimport reactX from
 
 
+## 🎯 Demostración de Conocimientos Reactexport
 
-## 🎯 Demostración de Conocimientos Reactexport default defineConfig([
+ 
 
-  globalIgnores(['dist']),
+### 1. **Custom Hooks Avanzados** 
 
-### 1. **Custom Hooks Avanzados**  {
 
-```typescript    files: ['**/*.{ts,tsx}'],
 
 // useMovies.ts - Hook personalizado con TypeScript estricto    extends: [
 
