@@ -115,6 +115,46 @@ export const useSearchMovies = () => {
   return { movies, loading, error, searchMovies };
 };
 
+// Hook específico para películas próximas a estrenar
+export const useUpcomingMovies = (limit: number = 5) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUpcomingMovies = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        if (!API_KEY) {
+          throw new Error('API Key de TMDB no configurada');
+        }
+
+        const response = await fetch(
+          `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=es-ES&region=ES`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+
+        const data: MoviesResponse = await response.json();
+        // Limitamos al número de películas solicitado
+        setMovies(data.results.slice(0, limit));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Error al cargar películas próximas');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUpcomingMovies();
+  }, [limit]);
+
+  return { movies, loading, error };
+};
+
 // Utilidad para obtener URL completa de imágenes
 export const getImageUrl = (path: string | null, size: 'w300' | 'w500' | 'w780' | 'original' = 'w500') => {
   if (!path) return '/placeholder-movie.svg'; // Imagen por defecto

@@ -148,6 +148,32 @@ export default ComponentName;
 
 ## 🎨 Modern CSS - Nesting and Scalability
 
+### 🎨 **Design System Variables:**
+- **Global variables** están centralizadas en `src/styles/variables.css`
+- **Usar siempre variables CSS** en lugar de valores hardcoded
+- **Variables disponibles:** colores, espaciado, tipografía, sombras, transiciones, breakpoints
+- **Importar variables** automáticamente a través de `index.css`
+
+```css
+/* ✅ CORRECT - Using CSS variables */
+.component {
+  background: var(--color-bg-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-all);
+}
+
+/* ❌ INCORRECT - Hardcoded values */
+.component {
+  background: #333333;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+```
+
 ### ✅ **Nesting Structure:**
 
 ```css
